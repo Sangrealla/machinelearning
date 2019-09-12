@@ -43,9 +43,21 @@ y = np.sin(x)
 # The plot function makes a line chart of one array against another
 plt.plot(x, y, marker="x")
 ```
-
-
-
+## pandas
+pandas 是用于处理和分析数据的Python 库。它基于一种叫作DataFrame 的数据结构，这种数据结构模仿了R 语言中的DataFrame。简单来说，一个pandas DataFrame 是一张表格，类似于Excel 表格。  
+pandas 中包含大量用于修改表格和操作表格的方法，尤其是可以像SQL 一样对表格进行查询和连接。NumPy 要求数组中的所有元素类型必须完全相同，而pandas 不是这样，每一列数据的类型可以互不相同（比如整型、日期、浮点数和字符串）。pandas 的另一个强大之处在于，它可以从许多文件格式和数据库中提取数据，如SQL、Excel 文件和逗号分隔值（CSV）文件。
+```python
+import pandas as pd
+from IPython.display import display
+# 创建关于人的简单数据集
+data = {'Name': ["John", "Anna", "Peter", "Linda"],  
+        'Location' : ["New York", "Paris", "Berlin", "London"],  
+        'Age' : [24, 13, 53, 33]  
+        }
+data_pandas = pd.DataFrame(data)
+# IPython.display可以在Jupyter Notebook中打印出“美观的”DataFrame
+display(data_pandas)
+```
 
 
 
