@@ -3,8 +3,8 @@ NumPy 是Python 科学计算的基础包之一。它的功能包括多维数组�
 在scikit-learn 中，NumPy 数组是基本数据结构。scikit-learn 接受NumPy 数组格式的数据。你用到的所有数据都必须转换成NumPy 数组。NumPy 的核心功能是 ndarray 类，即多维（n 维）数组。数组的所有元素必须是同一类型。NumPy 数组如下所示：  
 ```python
 import numpy as np
-x=np.array([1,2,3],[4,5,6])
-print(''x:\n{}''.fprmat(x))
+x = np.array([[1, 2, 3], [4, 5, 6]])
+print("x:\n{}".format(x))
 ```
 
 ## SciPy
@@ -12,11 +12,14 @@ SciPy 是Python 中用于科学计算的函数集合。它具有线性代数高�
 scikit-learn 利用SciPy 中的函数集合来实现算法。对我们来说，SciPy 中最重要的是scipy.sparse：它可以给出稀疏矩阵（sparse matrice），稀疏矩阵是scikit-learn 中数据的另一种表示方法。如果想保存一个大部分元素都是0 的二维数组，就可以使用稀疏矩阵：
 ```python
 from scipy import sparse
-import numpy as np
+# Create a 2D NumPy array with a diagonal of ones, and zeros everywhere else
 eye = np.eye(4)
-print("NumPy array:\n{}".format(eye))
-sparse_matrix = sparse.csr_matrix(eye);
-print("\nSciPy sparse CSR matrix:\n{}".format(sparse_matrix))
+print("NumPy array:\n", eye)
+eye
+# Convert the NumPy array to a SciPy sparse matrix in CSR format
+# Only the nonzero entries are stored
+sparse_matrix = sparse.csr_matrix(eye)
+print("\nSciPy sparse CSR matrix:\n", sparse_matrix)
 ```
 通常来说，创建稀疏数据的稠密表示（dense representation）是不可能的（因为太浪费内存），所以我们需要直接创建其稀疏表示（sparse representation）。  
 下面给出的是创建同一稀疏矩阵的方法，用的是COO 格式：  
